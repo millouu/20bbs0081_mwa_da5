@@ -15,7 +15,7 @@
         <h2 style="margin-bottom: 30px;">🧑‍🎓 Student Records</h2>
         <?php
         // Create connection
-        $conn = new mysqli("localhost", "root", "","academix");
+        $conn = new mysqli("localhost", "root", "", "academix");
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
             echo "<script>alert('Connection failed')</script>";
@@ -34,6 +34,7 @@
                     <th scope='col'>Registration Number</th>
                     <th scope='col'>School</th>
                     <th scope='col'>CGPA</th>
+                    <th scope='col'>Operations</th>
                 </tr>
             </thead>
             <tbody>";
@@ -44,6 +45,10 @@
                     <td>" . $row["regno"] . "</td>
                     <td>" . $row["school"] . "</td>
                     <td>" . $row["cgpa"] . "</td>
+                    <td>
+                        <button class='btn btn-primary'>Update</button>
+                        <button class='btn btn-danger'>Delete</button>
+                    </td>
                 </tr>";
             }
             echo "</tbody>

@@ -13,8 +13,8 @@
     ?>
 
     <div class="container" style="margin-top: 50px;">
-    <h2 style="margin-bottom: 30px;">🏫 Register Here</h2>
-        <form >
+        <h2 style="margin-bottom: 30px;">🏫 Register Here</h2>
+        <form action="/da5/pages/functions/submit.php" method="POST">
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control" name="studentName" aria-describedby="emailHelp" placeholder="Enter Name">
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label>CGPA</label>
-                <input type="number" class="form-control" name="cgpa" placeholder="Enter CGPA">
+                <input type="number" step="any" class="form-control" name="cgpa" placeholder="Enter CGPA">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
