@@ -14,18 +14,18 @@
 
     <div class="container" style="margin-top: 50px;">
         <h2 style="margin-bottom: 30px;">🏫 Register Here</h2>
-        <form action="/da5/pages/functions/submit.php" method="POST">
+        <form action="/da5/pages/functions/submit.php" method="POST" onsubmit="return validateForm()">
             <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" name="studentName" aria-describedby="emailHelp" placeholder="Enter Name">
+                <label for="studentName">Name*</label>
+                <input type="text" class="form-control" name="studentName" id="studentName" aria-describedby="emailHelp" placeholder="Enter Name">
             </div>
             <div class="form-group">
-                <label>Registration Number</label>
-                <input type="text" class="form-control" name="regno" placeholder="Enter Registration Number">
+                <label for="regno">Registration Number*</label>
+                <input type="text" class="form-control" name="regno" id="regno" placeholder="Enter Registration Number">
             </div>
             <div class="form-group">
-                <label>Select School</label>
-                <select class="form-control" name="school">
+                <label for="school">Select School*</label>
+                <select class="form-control" name="school" id="school">
                     <option>SCOPE</option>
                     <option>SCORE</option>
                     <option>SCHEME</option>
@@ -34,12 +34,37 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>CGPA</label>
-                <input type="number" step="any" class="form-control" name="cgpa" placeholder="Enter CGPA">
+                <label for="cgpa">CGPA*</label>
+                <input type="number" step="any" class="form-control" name="cgpa" id="cgpa" placeholder="Enter CGPA">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+
+    <script>
+        function validateForm() {
+            // Remove previous validation alerts
+            var previousAlert = document.querySelector(".alert.alert-danger");
+            if (previousAlert) {
+                previousAlert.remove();
+            }
+
+            var studentName = document.getElementById("studentName").value;
+            var regno = document.getElementById("regno").value;
+            var cgpa = document.getElementById("cgpa").value;
+
+            if (studentName.trim() === "" || regno.trim() === "" || cgpa.trim() === "") {
+                // Display a Bootstrap alert for validation error
+                var alertDiv = document.createElement("div");
+                alertDiv.className = "alert alert-danger";
+                alertDiv.innerHTML = "Please fill in all required fields.";
+                document.querySelector(".container").insertBefore(alertDiv, document.querySelector("form"));
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

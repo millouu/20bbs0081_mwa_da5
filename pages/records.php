@@ -22,14 +22,13 @@
         } else {
             echo "<script>console.log('Connection established')</script>";
         }
-        $sql = "SELECT * FROM STUDENTS;";
+        $sql = "SELECT * FROM STUDENTS ORDER BY NAME;";
         $result = $conn->query($sql);
         //display the rows in a 
         if ($result->num_rows > 0) {
             echo "<table class='table table-hover'>
             <thead class='thead-dark'>
                 <tr>
-                    <th scope='col'>#</th>
                     <th scope='col'>Name</th>
                     <th scope='col'>Registration Number</th>
                     <th scope='col'>School</th>
@@ -40,21 +39,24 @@
             <tbody>";
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
-                    <th scope='row'>" . $row["id"] . "</th>
                     <td>" . $row["name"] . "</td>
                     <td>" . $row["regno"] . "</td>
                     <td>" . $row["school"] . "</td>
                     <td>" . $row["cgpa"] . "</td>
                     <td>
-                        <button class='btn btn-primary'>Update</button>
-                        <button class='btn btn-danger'>Delete</button>
+                        <button class='btn btn-primary'><a style='text-decoration:none; color:white;' href='/da5/pages/functions/update.php?regno=" . $row["regno"] . "'>Update</a></button>
+                        <button class='btn btn-danger'><a style='text-decoration:none; color:white;' href='/da5/pages/functions/delete.php?regno=" . $row["regno"] . "'>Delete</a></button>
                     </td>
+
                 </tr>";
             }
             echo "</tbody>
             </table>";
         } else {
-            echo "0 results";
+            //create a bootstrap alert saying No records to display!
+            echo "<div class='alert alert-danger' role='alert'>
+            No records to display!
+            </div>";
         }
 
         ?>

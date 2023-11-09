@@ -26,7 +26,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 //creating table
-$sql = "CREATE TABLE STUDENTS(
+$sql = "CREATE TABLE IF NOT EXISTS STUDENTS(
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
     regno VARCHAR(30) NOT NULL,
