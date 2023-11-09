@@ -23,7 +23,7 @@ $cgpa=$_POST["cgpa"];
 //inserting values into the table
 $sql="INSERT INTO STUDENTS(name,regno,school,cgpa) VALUES('$name','$regno','$school',$cgpa);";
 if($conn->query($sql)===TRUE){
-    echo "<script>alert('Values inserted successfully')</script>";
+    echo "<script>alert('Record inserted successfully')</script>";
     //on pressing okay in the alert redirect to home.php
     echo "<script>window.location.href='/da5/pages/home.php'</script>";
     // header("Location: /da5/pages/home.php");

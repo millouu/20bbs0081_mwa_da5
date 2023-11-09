@@ -44,7 +44,7 @@
                     <td>" . $row["school"] . "</td>
                     <td>" . $row["cgpa"] . "</td>
                     <td>
-                        <button class='btn btn-primary'><a style='text-decoration:none; color:white;' href='/da5/pages/functions/update.php?regno=" . $row["regno"] . "'>Update</a></button>
+                        <button class='btn btn-primary'><a style='text-decoration:none; color:white;' href='/da5/pages/functions/updateForm.php?regno=" . $row["regno"] . "'>Update</a></button>
                         <button class='btn btn-danger'><a style='text-decoration:none; color:white;' href='/da5/pages/functions/delete.php?regno=" . $row["regno"] . "'>Delete</a></button>
                     </td>
 

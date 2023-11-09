@@ -17,7 +17,7 @@
         <form action="/da5/pages/functions/submit.php" method="POST" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="studentName">Name*</label>
-                <input type="text" class="form-control" name="studentName" id="studentName" aria-describedby="emailHelp" placeholder="Enter Name">
+                <input type="text" class="form-control" name="studentName" id="studentName" placeholder="Enter Name">
             </div>
             <div class="form-group">
                 <label for="regno">Registration Number*</label>
